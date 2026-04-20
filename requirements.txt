@@ -1,0 +1,8 @@
+torch==2.2.0 # PyTorch
+opencv-python==4.5.5.64  # OpenCV for image processing
+matplotlib==3.6.2  # For plotting and visualization
+numpy>=1.26.4  # For numerical operations
+pandas==1.5.2  # For handling data
+# pyyaml==6.0  # For reading YAML files
+#scipy==1.9.3  # For scientific computing
+requests==2.28.1  # For making HTTP requests
