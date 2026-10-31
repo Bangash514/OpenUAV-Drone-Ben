@@ -1,32 +1,31 @@
 # OpenUAV-Drone-Ben
 
-OpenUAV-Drone-Ben is an industry-focused UAV and drone development repository containing custom YOLOv5-based workflows, preprocessing scripts, training and detection utilities, notebooks, and result files for real-world drone application development.
+Author: BEN, Software Engineer
 
-## Overview
-This repository includes custom scripts and project components used for UAV/drone data preparation, model training, detection, evaluation, and workflow experimentation. The project is organized to keep core scripts, YOLOv5-related custom files, notebooks, and results separate for better readability and maintenance.
+A small UAV / drone object-detection workflow built around YOLOv5: annotation conversion, training and detection scripts, a tutorial notebook, and a simple frame-by-frame demo script.
 
-## Main Components
-- **scripts/** – utility and preprocessing scripts such as XML-to-YOLO annotation conversion
-- **yolov5_custom/** – custom YOLOv5-related training and detection files
-- **notebooks/** – notebooks for experiments, testing, or demonstrations
-- **results/** – output files and result summaries
-- **requirements.txt** – main project dependencies
-- **yolov5_requirements.txt** – YOLOv5-specific dependencies
+## What is in this repository
+| Path | What it is |
+|---|---|
+| `scripts/convert_xml_to_yolo.py` | Converts XML (Pascal VOC style) annotations to YOLO label files |
+| `scripts/DroneUAV.py` | Demo that overlays a **simulated** value on a video, computed from the frame number (not a real measurement) |
+| `yolov5_custom/train.py`, `detect.py` | YOLOv5 training and detection scripts from Ultralytics (AGPL-3.0), with small edits |
+| `yolov5_custom/requirements.txt` | YOLOv5 dependencies |
+| `notebooks/tutorial.ipynb` | Tutorial notebook |
+| `results/UAV_output_values.csv` | Output of the demo script: simulated per-frame values, **not detection accuracy** |
+| `requirements.txt` | Project dependencies |
+| `sample_images/` | Sample image |
 
-## Features
-- XML annotation to YOLO label conversion
-- UAV/drone object detection workflow
-- YOLOv5-based training and inference customization
-- Experiment notebook support
-- Organized result tracking
+## Usage
+1. Install dependencies: `pip install -r requirements.txt` (and `yolov5_custom/requirements.txt` for YOLOv5).
+2. Edit the folder paths at the top of `scripts/convert_xml_to_yolo.py` and the video path in `scripts/DroneUAV.py`; they point to folders on the author's computer.
+3. Convert annotations, then train and detect with the YOLOv5 scripts in `yolov5_custom/`.
 
-## Project Structure
-```text
-OpenUAV-Drone-Ben/
-├── README.md
-├── requirements.txt
-├── yolov5_requirements.txt
-├── scripts/
-├── yolov5_custom/
-├── notebooks/
-└── results/
+## Status and limits
+- No trained-model accuracy (mAP, precision, recall) is reported in this repository yet.
+- `results/UAV_output_values.csv` comes from a simulation rule, so it says nothing about detection quality.
+- The dataset and trained weights are not included.
+
+## License and credits
+The YOLOv5 files in `yolov5_custom/` are from Ultralytics YOLOv5 (https://github.com/ultralytics/yolov5), licensed under **AGPL-3.0**.
+This repository is therefore released under **AGPL-3.0**; see `LICENSE`.
